@@ -33,7 +33,9 @@ public class MainController {
     @GetMapping("/id={id}")
     public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("student", studentData.show(id));
-        model.addAttribute("avg", markData.avgMark(id));
+        if(studentData.check(id)) {
+            model.addAttribute("avg", markData.avgMark(id));
+        }
         return "students/show";
     }
 

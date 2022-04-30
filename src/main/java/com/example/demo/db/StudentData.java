@@ -32,5 +32,10 @@ public class StudentData {
         jdbcTemplate.update("INSERT into student VALUES (default , ?)", student.getName());
     }
 
+    public boolean check(int idStudent){
+        return jdbcTemplate.queryForObject("Select exists(select id_student from mark where id_student=?)",
+                Boolean.class, idStudent);
+    }
+
 
 }
