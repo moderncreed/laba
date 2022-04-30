@@ -34,7 +34,7 @@ public class MainController {
     public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("student", studentData.show(id));
         model.addAttribute("avg", markData.avgMark(id));
-        return "marks/showAvg";
+        return "students/show";
     }
 
 

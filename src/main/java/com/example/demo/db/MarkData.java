@@ -41,7 +41,7 @@ public class MarkData {
     }
 
     public void delete() {
-        jdbcTemplate.update("delete from student where id_students in (select id_student from mark where mark <=3)");
+        jdbcTemplate.update("delete from student where id in (select id_student from mark where mark <=3)");
     }
     public double avgMark(int StudentId) {
         return jdbcTemplate.queryForObject("SELECT AVG(mark) FROM mark WHERE id_student = ?", double.class, StudentId);
